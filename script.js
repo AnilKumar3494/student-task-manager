@@ -6,6 +6,7 @@ const taskList = document.getElementById('taskList');
 // Declare a variable to store the initial task name
 let initialTaskName = '';
 
+
 // Function to add a new task
 function addTask() {
     const taskText = taskInput.value.trim();
@@ -14,7 +15,7 @@ function addTask() {
         // Create a new list item
         const listItem = document.createElement('div'); // Change from <li> to <div>
         listItem.className = 'task-item'; // Add a class for styling
-        
+
         // Create a new span element with the task text
         const taskSpan = document.createElement('span');
         taskSpan.innerHTML = `${taskText}`;
@@ -30,9 +31,9 @@ function addTask() {
         document.getElementById('taskContainer').appendChild(listItem);
 
         // Apply styling to the task item
-		
-        listItem.style.backgroundColor = '#ffffff'; // Set the background color as needed
-        listItem.style.padding = '10px'; // Adjust padding as needed
+
+        listItem.style.backgroundColor = '#f5f5f5'; // Set the background color as needed
+        listItem.style.padding = '0.5rem'; // Adjust padding as needed
 
         // Clear the input field
         taskInput.value = '';
@@ -44,13 +45,15 @@ function addTask() {
         document.getElementById('taskType').value = '';
         document.getElementById('dueTime').value = '';
         document.getElementById('description').value = '';
-        document.getElementById('color').value = '#33ffff';
+        document.getElementById('color').value = '#f5f5f5';
     }
 }
 
 // Function to open the task details modal
 function openModal() {
     document.getElementById('taskDetailsModal').style.display = 'block';
+    document.getElementById('taskDetailsModal').style.padding = '1rem';
+
 }
 
 // Function to close the task details modal
@@ -68,7 +71,7 @@ function saveTaskDetails() {
     const dueTime = document.getElementById('dueTime').value;
     const description = document.getElementById('description').value;
     const color = document.getElementById('color').value;
- 
+
     // Create a new span element with the updated task details
     const editedTaskSpan = document.createElement('span');
     editedTaskSpan.innerHTML = `${taskName}<br>
@@ -81,18 +84,18 @@ function saveTaskDetails() {
     editedTaskSpan.onclick = function () {
         editTask(editedTaskSpan);
     };
- 
+
     // Create a new list item and append the edited span
     const editedTaskItem = document.createElement('div'); // Change from <li> to <div>
     editedTaskItem.appendChild(editedTaskSpan);
     editedTaskItem.style.backgroundColor = color;
- 
+
     // Replace the selected task with the edited task
     selectedTask.parentNode.replaceChild(editedTaskItem, selectedTask);
- 
+
     // Apply fade-in animation to the edited task details
     editedTaskItem.classList.add('fade-in');
- 
+
     closeModal();
 }
 // Variable to store the selected task
@@ -121,9 +124,9 @@ function editTask(taskElement) {
         document.getElementById('taskType').value = taskType;
         document.getElementById('dueTime').value = dueTime;
         document.getElementById('description').value = description;
-        
+
         // Set the color input value to white
-        document.getElementById('color').value = '#33ffff' || color ;
+        document.getElementById('color').value = '#f5f5f5' || color;
     }
 
     openModal();
