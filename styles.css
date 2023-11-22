@@ -18,9 +18,33 @@ body {
     background-repeat: no-repeat;
 }
 
+
+/* mark as done */
+.task-item button {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.3rem;
+    background-color: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    margin-top: 0.8rem;
+}
+
+.task-item button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+}
+
+
 /* animation */
 .fade-in {
     animation: fadeIn 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
 .fade-in:hover {
@@ -65,6 +89,7 @@ select {
 button {
     font-size: 1.6rem;
     padding: 1.2rem 2.4rem;
+    height: 4rem;
     /* 12px 24px */
     border-radius: 0.3rem;
     background-color: #4caf50;
@@ -156,7 +181,9 @@ input::placeholder {
 }
 
 .task-item {
-    padding: 1.6rem;
+    position: relative;
+
+    padding: 10px;
     /* 16px */
     background-color: #f5f5f5;
     box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.1);
@@ -166,6 +193,47 @@ input::placeholder {
     /* Added */
     grid-template-rows: auto 1fr;
     /* Added */
+    margin-bottom: 10px;
+}
+
+.task-details {
+    padding-top: 10px;
+    font-size: 0.9em;
+}
+
+
+/* three dots */
+.dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.dots {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content span {
+    padding: 12px 16px;
+    display: block;
+    cursor: pointer;
+}
+
+.dropdown-content span:hover {
+    background-color: #f9f9f9;
+}
+
+.show {
+    display: block;
 }
 
 .task-item:hover {

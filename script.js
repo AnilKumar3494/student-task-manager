@@ -1,11 +1,6 @@
-// JavaScript Document
 // Get references to HTML elements
 const taskInput = document.getElementById('taskInput');
 const taskList = document.getElementById('taskList');
-
-// Declare a variable to store the initial task name
-let initialTaskName = '';
-
 
 // Function to add a new task
 function addTask() {
@@ -24,16 +19,19 @@ function addTask() {
             editTask(taskSpan);
         };
 
-        // Append the span to the list item
+        // Create a "Mark as Done" button
+        const markDoneButton = document.createElement('button');
+        markDoneButton.textContent = 'Mark as Done';
+        markDoneButton.onclick = function () {
+            markTaskAsDone(listItem);
+        };
+
+        // Append the span and button to the list item
         listItem.appendChild(taskSpan);
+        listItem.appendChild(markDoneButton);
 
         // Add the list item to the task container
         document.getElementById('taskContainer').appendChild(listItem);
-
-        // Apply styling to the task item
-
-        listItem.style.backgroundColor = '#f5f5f5'; // Set the background color as needed
-        listItem.style.padding = '0.5rem'; // Adjust padding as needed
 
         // Clear the input field
         taskInput.value = '';
@@ -47,6 +45,11 @@ function addTask() {
         document.getElementById('description').value = '';
         document.getElementById('color').value = '#f5f5f5';
     }
+}
+
+// Function to mark a task as done
+function markTaskAsDone(taskItem) {
+    taskItem.remove();
 }
 
 // Function to open the task details modal
@@ -73,6 +76,8 @@ function saveTaskDetails() {
     const color = document.getElementById('color').value;
 
     // Create a new span element with the updated task details
+    const taskDetailsDiv = document.createElement('div');
+    taskDetailsDiv.className = 'task-details';
     const editedTaskSpan = document.createElement('span');
     editedTaskSpan.innerHTML = `${taskName}<br>
                                 Start Date: ${startDate}<br>
@@ -84,11 +89,22 @@ function saveTaskDetails() {
     editedTaskSpan.onclick = function () {
         editTask(editedTaskSpan);
     };
+    taskDetailsDiv.appendChild(editedTaskSpan);
 
     // Create a new list item and append the edited span
     const editedTaskItem = document.createElement('div'); // Change from <li> to <div>
     editedTaskItem.appendChild(editedTaskSpan);
     editedTaskItem.style.backgroundColor = color;
+
+    // Create a "Mark as Done" button for the edited task
+    const markDoneButton = document.createElement('button');
+    markDoneButton.textContent = 'Mark as Done';
+    markDoneButton.onclick = function () {
+        markTaskAsDone(editedTaskItem);
+    };
+
+    // Append the "Mark as Done" button to the edited task
+    editedTaskItem.appendChild(markDoneButton);
 
     // Replace the selected task with the edited task
     selectedTask.parentNode.replaceChild(editedTaskItem, selectedTask);
