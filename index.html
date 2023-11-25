@@ -4,59 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Student To-Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="loginstlyes.css">
+    <title>Student Login Page</title>
 </head>
 
 <body>
 
-    <div id="app">
-        <h1>Your Task Manager</h1>
-        <div>
-            <input type="text" id="taskInput" placeholder="Add a new task...">
-            <button onclick="addTask()">Add Task</button>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registeration</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a class="button" href="tasksindex.html">Sign Up</a>
+            </form>
         </div>
-        <div id="taskContainer" class="task-container"></div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email password</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#">Forget Your Password?</a>
+                <a class="button" href="tasksindex.html">Sign In</a>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <a class="hidden button" id="login">Sign In</a>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <a class="hidden button" id="register">Sign Up</a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Task Details Modal -->
-    <div id="taskDetailsModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Edit Task</h2>
-            <div class="form-group">
-                <label for="taskName">Task Name:</label>
-                <input type="text" id="taskName">
-            </div>
-            <div class="form-group">
-                <label for="startDate">Start Date:</label>
-                <input type="date" id="startDate">
-            </div>
-            <div class="form-group">
-                <label for="endDate">End Date:</label>
-                <input type="date" id="endDate">
-            </div>
-            <div class="form-group">
-                <label for="taskType">Task Type:</label>
-                <input type="text" id="taskType">
-            </div>
-            <div class="form-group">
-                <label for="dueTime">Due Time (optional):</label>
-                <input type="time" id="dueTime">
-            </div>
-            <div class="form-group">
-                <label for="description">Description:</label>
-                <textarea id="description"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="color">Task Color:</label>
-                <input type="color" id="color">
-            </div>
-            <button onclick="saveTaskDetails()">Save</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="loginscript.js"></script>
 </body>
 
 </html>

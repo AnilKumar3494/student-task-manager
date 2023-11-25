@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Student To-Do List</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>Your Task Manager</h1>
+        <div>
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        <div id="taskContainer" class="task-container"></div>
+    </div>
+
+    <!-- Task Details Modal -->
+    <div id="taskDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Edit Task</h2>
+            <div class="form-group">
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName">
+            </div>
+            <div class="form-group">
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate">
+            </div>
+            <div class="form-group">
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate">
+            </div>
+            <div class="form-group">
+                <label for="taskType">Task Type:</label>
+                <input type="text" id="taskType">
+            </div>
+            <div class="form-group">
+                <label for="dueTime">Due Time (optional):</label>
+                <input type="time" id="dueTime">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="color">Task Color:</label>
+                <input type="color" id="color">
+            </div>
+            <button onclick="saveTaskDetails()">Save</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
