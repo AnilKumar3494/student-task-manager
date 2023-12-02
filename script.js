@@ -21,6 +21,7 @@ function addTask() {
 
         // Create a "Mark as Done" button
         const markDoneButton = document.createElement('button');
+        markDoneButton.className = 'mark'
         markDoneButton.textContent = 'Mark as Done';
         markDoneButton.onclick = function () {
             markTaskAsDone(listItem);
@@ -38,7 +39,6 @@ function addTask() {
 
         // Clear the modal input fields
         document.getElementById('taskName').value = taskText;
-        document.getElementById('startDate').value = '';
         document.getElementById('endDate').value = '';
         document.getElementById('taskType').value = '';
         document.getElementById('dueTime').value = '';
@@ -68,7 +68,6 @@ function closeModal() {
 function saveTaskDetails() {
     // Fetch task details from modal inputs
     const taskName = document.getElementById('taskName').value.trim();
-    const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
     const taskType = document.getElementById('taskType').value;
     const dueTime = document.getElementById('dueTime').value;
@@ -80,12 +79,12 @@ function saveTaskDetails() {
     taskDetailsDiv.className = 'task-details';
     const editedTaskSpan = document.createElement('span');
     editedTaskSpan.innerHTML = `${taskName}<br>
-                                Start Date: ${startDate}<br>
-                                End Date: ${endDate}<br>
+                                Submission Date: ${endDate}<br>
                                 Type: ${taskType}<br>
                                 Due Time: ${dueTime}<br>
                                 Description: ${description}`;
     editedTaskSpan.style.cursor = 'pointer';
+
     editedTaskSpan.onclick = function () {
         editTask(editedTaskSpan);
     };
@@ -126,8 +125,8 @@ function editTask(taskElement) {
     // Extract existing details from the task text (if any)
     const existingDetails = selectedTaskText.split('Start Date: ')[1];
     if (existingDetails) {
-        const startDate = existingDetails.split('\n')[0];
-        const endDate = existingDetails.split('End Date: ')[1].split('\n')[0];
+        ;
+        const endDate = existingDetails.split('Submission Date: ')[1].split('\n')[0];
         const taskType = existingDetails.split('Type: ')[1].split('\n')[0];
         const dueTime = existingDetails.split('Due Time: ')[1].split('\n')[0];
         const description = existingDetails.split('Description: ')[1];
@@ -135,7 +134,6 @@ function editTask(taskElement) {
 
         // Populate modal with existing details
         document.getElementById('taskName').value = selectedTaskText.split('<br>')[0];
-        document.getElementById('startDate').value = startDate;
         document.getElementById('endDate').value = endDate;
         document.getElementById('taskType').value = taskType;
         document.getElementById('dueTime').value = dueTime;
