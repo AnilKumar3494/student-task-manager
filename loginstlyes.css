@@ -9,11 +9,11 @@
 
 body {
     background: url(backgroundimg.jpg);
+    background-position: left;
+    background-repeat: no-repeat;
   
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    display: grid;
+    place-items: center;   
     height: 100vh;
 }
 
