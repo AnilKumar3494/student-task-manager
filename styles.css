@@ -185,10 +185,6 @@ input::placeholder {
     transform: scale(1.1);
 }
 
-.fade-in button{
-    border-color: red;
-}
-
 
 /* animation */
 .fade-in {
